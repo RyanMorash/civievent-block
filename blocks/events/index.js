@@ -218,14 +218,14 @@
 			inspector,
 			el( 'div', useBlockProps( { className: 'civievent-block-editor' } ),
 				el( ServerSideRender, {
-					block: 'civievent/events',
+					block: 'civievent-block/events',
 					attributes: attributes
 				} )
 			)
 		);
 	}
 
-	blocks.registerBlockType( 'civievent/events', {
+	blocks.registerBlockType( 'civievent-block/events', {
 		edit: Edit,
 		save: function () {
 			return null;
