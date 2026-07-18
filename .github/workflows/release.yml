@@ -1,0 +1,98 @@
+name: Build release ZIP
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    name: Package WordPress plugin
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out release tag
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.release.tag_name }}
+
+      - name: Validate release version
+        id: release
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          set -euo pipefail
+
+          release_version="${RELEASE_TAG#v}"
+          plugin_version="$(sed -n 's/^Version:[[:space:]]*//p' civievent-block.php | head -n 1)"
+          runtime_version="$(grep -oE "CIVIEVENT_BLOCK_VERSION', '[^']+" civievent-block.php | sed "s/.*'//")"
+          block_version="$(php -r '$metadata = json_decode(file_get_contents("blocks/events/block.json"), true, 512, JSON_THROW_ON_ERROR); echo $metadata["version"];')"
+          asset_version="$(php -r '$asset = require "blocks/events/index.asset.php"; echo $asset["version"];')"
+          stable_tag="$(sed -n 's/^Stable tag:[[:space:]]*//p' readme.txt | head -n 1)"
+
+          printf '%s\n' \
+            "Release tag: $release_version" \
+            "Plugin header: $plugin_version" \
+            "Runtime constant: $runtime_version" \
+            "Block metadata: $block_version" \
+            "Editor asset: $asset_version" \
+            "Stable tag: $stable_tag"
+
+          for candidate in \
+            "$plugin_version" \
+            "$runtime_version" \
+            "$block_version" \
+            "$asset_version" \
+            "$stable_tag"; do
+            if [[ -z "$candidate" || "$candidate" != "$release_version" ]]; then
+              echo "::error::All plugin versions must match release tag $RELEASE_TAG."
+              exit 1
+            fi
+          done
+
+          echo "version=$plugin_version" >> "$GITHUB_OUTPUT"
+          echo "asset=civievent-block-$plugin_version.zip" >> "$GITHUB_OUTPUT"
+
+      - name: Run release checks
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          find . -name '*.php' -not -path './.git/*' -print0 | xargs -0 -n1 php -l
+          node --check blocks/events/index.js
+          php tests/render-smoke.php
+
+      - name: Build installable ZIP
+        shell: bash
+        env:
+          ASSET_NAME: ${{ steps.release.outputs.asset }}
+        run: |
+          set -euo pipefail
+
+          mkdir -p build
+          git archive \
+            --format=zip \
+            --prefix=civievent-block/ \
+            --output="build/$ASSET_NAME" \
+            "$GITHUB_SHA"
+
+          unzip -t "build/$ASSET_NAME"
+
+          if unzip -Z1 "build/$ASSET_NAME" | grep -Eq '^civievent-block/(tests/|\.github/|dist/|README\.md$|\.gitattributes$)'; then
+            echo "::error::The release ZIP contains development-only files."
+            exit 1
+          fi
+
+      - name: Attach ZIP to release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          ASSET_NAME: ${{ steps.release.outputs.asset }}
+        run: |
+          set -euo pipefail
+
+          gh release upload "$RELEASE_TAG" "build/$ASSET_NAME" --clobber
