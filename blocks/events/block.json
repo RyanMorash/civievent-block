@@ -1,0 +1,111 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "civievent/events",
+	"version": "0.1.0",
+	"title": "CiviCRM Events",
+	"category": "widgets",
+	"icon": "calendar-alt",
+	"description": "Display a list or a single upcoming public CiviCRM event.",
+	"keywords": [ "CiviCRM", "events", "calendar" ],
+	"textdomain": "civievent-block",
+	"attributes": {
+		"displayMode": {
+			"type": "string",
+			"default": "list"
+		},
+		"heading": {
+			"type": "string",
+			"default": "Upcoming Events"
+		},
+		"headingLevel": {
+			"type": "number",
+			"default": 2
+		},
+		"limit": {
+			"type": "number",
+			"default": 5
+		},
+		"offset": {
+			"type": "number",
+			"default": 0
+		},
+		"eventTypeId": {
+			"type": "number",
+			"default": 0
+		},
+		"showSummary": {
+			"type": "boolean",
+			"default": false
+		},
+		"showTime": {
+			"type": "boolean",
+			"default": true
+		},
+		"showRegistration": {
+			"type": "boolean",
+			"default": true
+		},
+		"showViewAll": {
+			"type": "boolean",
+			"default": false
+		},
+		"showCity": {
+			"type": "boolean",
+			"default": false
+		},
+		"stateDisplay": {
+			"type": "string",
+			"default": "none"
+		},
+		"showCountry": {
+			"type": "boolean",
+			"default": false
+		},
+		"locationSeparator": {
+			"type": "string",
+			"default": ", "
+		},
+		"emptyMessage": {
+			"type": "string",
+			"default": "No upcoming events."
+		}
+	},
+	"supports": {
+		"align": [ "wide", "full" ],
+		"anchor": true,
+		"color": {
+			"background": true,
+			"text": true,
+			"link": true
+		},
+		"html": false,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		}
+	},
+	"styles": [
+		{
+			"name": "default",
+			"label": "Cards",
+			"isDefault": true
+		},
+		{
+			"name": "divided",
+			"label": "Divided"
+		},
+		{
+			"name": "striped",
+			"label": "Striped"
+		}
+	],
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./editor.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

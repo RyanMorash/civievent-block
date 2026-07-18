@@ -1,0 +1,14 @@
+.civievent-block-editor .wp-block-civievent-events {
+	pointer-events: none;
+}
+
+.civievent-block-editor .components-placeholder {
+	min-height: 8rem;
+}
+
+.civievent-block__error {
+	padding: 0.75rem 1rem;
+	border-inline-start: 4px solid #dba617;
+	background: #fff8e5;
+	color: #3c434a;
+}

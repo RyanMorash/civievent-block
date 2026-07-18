@@ -1,0 +1,119 @@
+.wp-block-civievent-events {
+	--civievent-border-color: color-mix(in srgb, currentColor 22%, transparent);
+	--civievent-muted-color: color-mix(in srgb, currentColor 70%, transparent);
+	--civievent-surface-color: color-mix(in srgb, currentColor 5%, transparent);
+}
+
+.civievent-block__heading {
+	margin-block: 0 1em;
+}
+
+.civievent-block__events {
+	display: grid;
+	gap: 1rem;
+}
+
+.civievent-block__event {
+	display: grid;
+	grid-template-columns: minmax(8rem, 0.35fr) minmax(0, 1fr);
+	gap: 1.25rem;
+	padding: 1rem;
+	border: 1px solid var(--civievent-border-color);
+	border-radius: 0.25rem;
+}
+
+.civievent-block__date {
+	color: var(--civievent-muted-color);
+	font-size: 0.9em;
+	font-weight: 600;
+}
+
+.civievent-block__event-title {
+	margin: 0;
+	font-size: 1.2em;
+	line-height: 1.3;
+}
+
+.civievent-block__event-title a {
+	color: inherit;
+}
+
+.civievent-block__location,
+.civievent-block__registration,
+.civievent-block__view-all,
+.civievent-block__empty,
+.civievent-block__error {
+	margin-block: 0.55em 0;
+}
+
+.civievent-block__location {
+	color: var(--civievent-muted-color);
+}
+
+.civievent-block__summary {
+	margin-block-start: 0.75em;
+}
+
+.civievent-block__summary > :first-child {
+	margin-block-start: 0;
+}
+
+.civievent-block__summary > :last-child {
+	margin-block-end: 0;
+}
+
+.civievent-block__registration a {
+	display: inline-block;
+	padding: 0.45em 0.8em;
+	border: 1px solid currentColor;
+	border-radius: 0.2rem;
+	font-weight: 600;
+	line-height: 1.2;
+	text-decoration: none;
+}
+
+.civievent-block__view-all {
+	text-align: end;
+}
+
+.wp-block-civievent-events.is-style-divided .civievent-block__events {
+	gap: 0;
+}
+
+.wp-block-civievent-events.is-style-divided .civievent-block__event {
+	padding-inline: 0;
+	border-width: 0 0 1px;
+	border-radius: 0;
+}
+
+.wp-block-civievent-events.is-style-striped .civievent-block__events {
+	gap: 0;
+}
+
+.wp-block-civievent-events.is-style-striped .civievent-block__event {
+	border: 0;
+	border-radius: 0;
+}
+
+.wp-block-civievent-events.is-style-striped .civievent-block__event:nth-child(odd) {
+	background: var(--civievent-surface-color);
+}
+
+.civievent-block--single .civievent-block__events {
+	max-width: 52rem;
+}
+
+@media (max-width: 600px) {
+	.civievent-block__event {
+		grid-template-columns: 1fr;
+		gap: 0.5rem;
+	}
+}
+
+@supports not (color: color-mix(in srgb, black 50%, white)) {
+	.wp-block-civievent-events {
+		--civievent-border-color: #cccccc;
+		--civievent-muted-color: #555555;
+		--civievent-surface-color: #f4f4f4;
+	}
+}
