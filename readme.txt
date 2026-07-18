@@ -23,7 +23,7 @@ The block supports:
 * Card, divided, and striped styles plus standard WordPress color, spacing, typography, alignment, and anchor controls.
 * A live server-rendered editor preview.
 
-This plugin requires CiviCRM. It does not require CiviEvent Widget and can safely run alongside it.
+This plugin requires CiviCRM with the CiviEvent component enabled.
 
 == Installation ==
 
@@ -37,10 +37,6 @@ This plugin requires CiviCRM. It does not require CiviEvent Widget and can safel
 = Which events are displayed? =
 
 The block displays active, public, non-template events whose start date is today or later, ordered by start date. Developers can adjust the CiviCRM API parameters with the `civievent_block_query_args` filter.
-
-= Does this replace CiviEvent Widget? =
-
-It provides the main list and single-event display features as a block. The legacy widget plugin can remain active while existing widgets or shortcodes are migrated.
 
 = Can I customize the markup or query? =
 
