@@ -3,7 +3,7 @@
 Plugin Name: Events Listing Block for CiviCRM
 Plugin URI: https://github.com/ryanmorash/civievent-block
 Description: Display public CiviCRM events with a dynamic Gutenberg block.
-Version: 1.0.1
+Version: 1.0.2
 Author: Ryan Morash
 Author URI: https://github.com/ryanmorash
 Requires at least: 6.6
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CIVIEVENT_BLOCK_VERSION', '1.0.1' );
+define( 'CIVIEVENT_BLOCK_VERSION', '1.0.2' );
 define( 'CIVIEVENT_BLOCK_PATH', plugin_dir_path( __FILE__ ) );
 
 require_once CIVIEVENT_BLOCK_PATH . 'includes/class-renderer.php';

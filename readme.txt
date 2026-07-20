@@ -4,7 +4,7 @@ Tags: civicrm, events, block, gutenberg, calendar
 Requires at least: 6.6
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -53,6 +53,10 @@ The plugin can still be activated safely. It shows a warning to administrators o
 CiviCRM is a registered trademark of CIVICRM LLC.
 
 == Changelog ==
+
+= 1.0.2 =
+
+* Rename the plugin to Events Listing Block for CiviCRM while retaining the `civievent-block` slug.
 
 = 1.0.1 =
 
