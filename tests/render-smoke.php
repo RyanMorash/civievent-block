@@ -92,7 +92,7 @@ function get_option( $option, $default = false ) {
 }
 
 function get_block_wrapper_attributes( $attributes ) {
-	return 'class="wp-block-civievent-events ' . esc_attr( $attributes['class'] ) . '"';
+	return 'class="wp-block-civievent-block-events ' . esc_attr( $attributes['class'] ) . '"';
 }
 
 function apply_filters( $hook, $value ) {
@@ -155,6 +155,7 @@ $html = \CiviEvent_Block\Renderer::render(
 );
 
 $expectations = array(
+	'wp-block-civievent-block-events',
 	'Community Workshop',
 	'August 2, 2026 6:00 pm',
 	'8:00 pm',
