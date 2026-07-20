@@ -1,6 +1,6 @@
-# CiviEvent Block
+# Events Listing Block for CiviCRM
 
-CiviEvent Block is a standalone, dynamic Gutenberg block for upcoming public [CiviCRM](https://civicrm.org/) events. It recreates the core list and single-event workflows of the legacy CiviEvent Widget in the block editor without storing event markup in post content.
+Events Listing Block for CiviCRM is a standalone, dynamic Gutenberg block for upcoming public [CiviCRM](https://civicrm.org/) events. It recreates the core list and single-event workflows of the legacy CiviEvent Widget in the block editor without storing event markup in post content.
 
 ## Requirements
 
@@ -8,7 +8,7 @@ CiviEvent Block is a standalone, dynamic Gutenberg block for upcoming public [Ci
 - PHP 7.4 or newer
 - An active CiviCRM plugin
 
-CiviCRM is distributed separately from the WordPress.org Plugin Directory. CiviEvent Block can be activated without it: administrators receive a contextual warning, editors see a configuration message, and visitors receive no broken output until CiviCRM is available.
+CiviCRM is distributed separately from the WordPress.org Plugin Directory. Events Listing Block for CiviCRM can be activated without it: administrators receive a contextual warning, editors see a configuration message, and visitors receive no broken output until CiviCRM is available.
 
 ## Development
 

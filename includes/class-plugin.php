@@ -51,7 +51,7 @@ final class Plugin {
 
 		$message = sprintf(
 			/* translators: %s: URL to the CiviCRM installation guide. */
-			__( 'CiviEvent Block is active, but it cannot display events until CiviCRM is installed and active. <a href="%s">See the CiviCRM installation guide.</a>', 'civievent-block' ),
+			__( 'Events Listing Block for CiviCRM is active, but it cannot display events until CiviCRM is installed and active. <a href="%s">See the CiviCRM installation guide.</a>', 'civievent-block' ),
 			esc_url( 'https://docs.civicrm.org/installation/en/latest/wordpress/' )
 		);
 

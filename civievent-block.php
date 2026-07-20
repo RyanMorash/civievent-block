@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: CiviEvent Block
+Plugin Name: Events Listing Block for CiviCRM
 Plugin URI: https://github.com/ryanmorash/civievent-block
 Description: Display public CiviCRM events with a dynamic Gutenberg block.
 Version: 1.0.1

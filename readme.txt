@@ -1,4 +1,4 @@
-=== CiviEvent Block ===
+=== Events Listing Block for CiviCRM ===
 Contributors: ryanmorash
 Tags: civicrm, events, block, gutenberg, calendar
 Requires at least: 6.6
@@ -12,7 +12,7 @@ Display upcoming public CiviCRM events in a dynamic Gutenberg block.
 
 == Description ==
 
-CiviEvent Block adds a server-rendered CiviCRM Events block. Event information is loaded from CiviCRM whenever the page is viewed, so published content stays current without resaving the post.
+Events Listing Block for CiviCRM adds a server-rendered CiviCRM Events block. Event information is loaded from CiviCRM whenever the page is viewed, so published content stays current without resaving the post.
 
 The block supports:
 
@@ -25,13 +25,13 @@ The block supports:
 
 This plugin requires CiviCRM with the CiviEvent component enabled. CiviCRM is not hosted in the WordPress.org Plugin Directory and must be installed separately.
 
-If CiviCRM is not active, CiviEvent Block remains active without causing a fatal error. Administrators see guidance on the Plugins screen, editors see a configuration message in the block preview, and the block produces no public output until CiviCRM is available.
+If CiviCRM is not active, Events Listing Block for CiviCRM remains active without causing a fatal error. Administrators see guidance on the Plugins screen, editors see a configuration message in the block preview, and the block produces no public output until CiviCRM is available.
 
 == Installation ==
 
 1. [Install and activate CiviCRM](https://docs.civicrm.org/installation/en/latest/wordpress/), then confirm that the CiviEvent component is enabled.
 2. Upload the `civievent-block` directory to `/wp-content/plugins/`.
-3. Activate CiviEvent Block.
+3. Activate Events Listing Block for CiviCRM.
 4. Insert the CiviCRM Events block in the block editor and choose its settings in the block sidebar.
 
 == Frequently Asked Questions ==
