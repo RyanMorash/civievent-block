@@ -8,6 +8,8 @@ CiviEvent Block is a standalone, dynamic Gutenberg block for upcoming public [Ci
 - PHP 7.4 or newer
 - An active CiviCRM plugin
 
+CiviCRM is distributed separately from the WordPress.org Plugin Directory. CiviEvent Block can be activated without it: administrators receive a contextual warning, editors see a configuration message, and visitors receive no broken output until CiviCRM is available.
+
 ## Development
 
 The block intentionally ships build-free JavaScript and uses WordPress-provided packages. No `node_modules` directory or compilation step is required.
@@ -19,6 +21,7 @@ php -l civievent-block.php
 find includes blocks -name '*.php' -exec php -l {} \;
 node --check blocks/events/index.js
 php tests/render-smoke.php
+php tests/dependency-smoke.php
 ```
 
 ## Extension hooks

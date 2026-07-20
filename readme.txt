@@ -4,7 +4,7 @@ Tags: civicrm, events, block, gutenberg, calendar
 Requires at least: 6.6
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 0.1.0
+Stable tag: 1.0.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -23,11 +23,13 @@ The block supports:
 * Card, divided, and striped styles plus standard WordPress color, spacing, typography, alignment, and anchor controls.
 * A live server-rendered editor preview.
 
-This plugin requires CiviCRM with the CiviEvent component enabled.
+This plugin requires CiviCRM with the CiviEvent component enabled. CiviCRM is not hosted in the WordPress.org Plugin Directory and must be installed separately.
+
+If CiviCRM is not active, CiviEvent Block remains active without causing a fatal error. Administrators see guidance on the Plugins screen, editors see a configuration message in the block preview, and the block produces no public output until CiviCRM is available.
 
 == Installation ==
 
-1. Install and activate CiviCRM.
+1. [Install and activate CiviCRM](https://docs.civicrm.org/installation/en/latest/wordpress/), then confirm that the CiviEvent component is enabled.
 2. Upload the `civievent-block` directory to `/wp-content/plugins/`.
 3. Activate CiviEvent Block.
 4. Insert the CiviCRM Events block in the block editor and choose its settings in the block sidebar.
@@ -42,7 +44,23 @@ The block displays active, public, non-template events whose start date is today
 
 The `civievent_block_query_args`, `civievent_block_events`, and `civievent_block_registration_label` filters allow theme or plugin code to adjust the query, event records, and registration label.
 
+= What happens if CiviCRM is not active? =
+
+The plugin can still be activated safely. It shows a warning to administrators on the Plugins screen and a configuration message to editors. Visitors see no broken markup or error message; the block begins displaying events after CiviCRM is installed and active.
+
+== Trademark ==
+
+CiviCRM is a registered trademark of CIVICRM LLC.
+
+This plugin is not endorsed by or affiliated with CIVICRM LLC.
+
 == Changelog ==
+
+= 1.0.0 =
+
+* Remove the unsupported WordPress.org dependency header for CiviCRM.
+* Handle a missing CiviCRM installation with contextual administrator and editor guidance.
+* Document the external CiviCRM installation requirement.
 
 = 0.1.0 =
 

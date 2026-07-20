@@ -64,6 +64,7 @@ jobs:
           find . -name '*.php' -not -path './.git/*' -print0 | xargs -0 -n1 php -l
           node --check blocks/events/index.js
           php tests/render-smoke.php
+          php tests/dependency-smoke.php
 
       - name: Build installable ZIP
         shell: bash

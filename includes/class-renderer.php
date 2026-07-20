@@ -28,6 +28,15 @@ final class Renderer {
 	private static $civicrm_initialized = false;
 
 	/**
+	 * Determine whether the WordPress integration for CiviCRM is active.
+	 *
+	 * @return bool
+	 */
+	public static function is_civicrm_available() {
+		return function_exists( 'civicrm_initialize' );
+	}
+
+	/**
 	 * Render the dynamic block.
 	 *
 	 * @param array<string, mixed> $attributes Block attributes.
@@ -108,7 +117,7 @@ final class Renderer {
 			return true;
 		}
 
-		if ( ! function_exists( 'civicrm_initialize' ) ) {
+		if ( ! self::is_civicrm_available() ) {
 			return new WP_Error(
 				'civievent_block_civicrm_missing',
 				__( 'CiviCRM must be active to display events.', 'civievent-block' ),
