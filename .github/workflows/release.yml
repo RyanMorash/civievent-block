@@ -82,7 +82,7 @@ jobs:
 
           unzip -t "build/$ASSET_NAME"
 
-          if unzip -Z1 "build/$ASSET_NAME" | grep -Eq '^civievent-block/(tests/|\.github/|dist/|README\.md$|\.gitattributes$)'; then
+          if unzip -Z1 "build/$ASSET_NAME" | grep -Eq '^civievent-block/(tests/|\.github/|dist/|README\.md$|\.gitattributes$|\.gitignore$)'; then
             echo "::error::The release ZIP contains development-only files."
             exit 1
           fi
