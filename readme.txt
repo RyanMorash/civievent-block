@@ -52,12 +52,11 @@ The plugin can still be activated safely. It shows a warning to administrators o
 
 CiviCRM is a registered trademark of CIVICRM LLC.
 
-This plugin is not endorsed by or affiliated with CIVICRM LLC.
-
 == Changelog ==
 
 = 1.0.0 =
 
+* Change block namespace to match plugin slug
 * Remove the unsupported WordPress.org dependency header for CiviCRM.
 * Handle a missing CiviCRM installation with contextual administrator and editor guidance.
 * Document the external CiviCRM installation requirement.
